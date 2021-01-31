@@ -24,8 +24,4 @@ public class ProjectController {
 
     }
 
-    public Menu showProjectMenu() {
-        return projectService.showMenu();
-    }
-
 }

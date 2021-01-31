@@ -12,7 +12,7 @@ import java.util.List;
 public class MenuService {
 
     MenuProvider employeeMenuProvider = new EmployeeMenuProvider();
-    MenuProvider projectMenuProvider = new ProjectService();
+    MenuProvider projectMenuProvider = new ProjectMenuProvider();
 
     public List<Menu> menus() {
         List<Menu> allMenus = new ArrayList<>();

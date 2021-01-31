@@ -17,10 +17,14 @@ public class UIConsole {
 
         while (true) {
             System.out.println("Choose options from below!");
-            printMenu(menuController.menus());
+            print(menuController.parentMenu());
             final int usersChoice = askUsersChoice();
             System.out.println("You have chosen choice " + usersChoice);
         }
+    }
+
+    private static void print(List<String> parentMenu) {
+        parentMenu.forEach(System.out::println);
     }
 
     private static int askUsersChoice() {

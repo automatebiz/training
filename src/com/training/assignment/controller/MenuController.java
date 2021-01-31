@@ -17,4 +17,8 @@ public class MenuController {
     public List<MenuItem> menuItems(final String label) {
         return menuService.menuItems(label);
     }
+
+    public List<String> parentMenu() {
+        return menuService.labels();
+    }
 }

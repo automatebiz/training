@@ -57,7 +57,4 @@ public final class EmployeeController {
         return employeeService.listEmployees();
     }
 
-    public Menu showEmployeeMenu() {
-        return employeeService.showMenu();
-    }
 }
