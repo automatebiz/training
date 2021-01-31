@@ -16,8 +16,7 @@ public class UIConsole {
     public static void main(String[] args) {
 
         while (true) {
-            System.out.println("What can I do for you?");
-            System.out.println("I have below options available?");
+            System.out.println("Choose options from below!");
             printMenu(menuController.menus());
             final int usersChoice = askUsersChoice();
             System.out.println("You have chosen choice " + usersChoice);

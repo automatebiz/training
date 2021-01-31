@@ -4,7 +4,9 @@ import com.training.assignment.framework.Menu;
 import com.training.assignment.framework.MenuItem;
 import com.training.assignment.framework.MenuProvider;
 
-public class ProjectService implements MenuProvider {
+public class ProjectService {
+
+
 
     public void createProject() {
 
@@ -22,11 +24,4 @@ public class ProjectService implements MenuProvider {
 
     }
 
-    @Override
-    public Menu showMenu() {
-        return new Menu("Project", new MenuItem("Create Project", 1),
-                new MenuItem("Update Project", 2),
-                new MenuItem("Delete Project", 3),
-                new MenuItem("List Project", 4));
-    }
 }

@@ -1,14 +1,11 @@
 package com.training.assignment.service;
 
-import com.training.assignment.framework.Menu;
-import com.training.assignment.framework.MenuItem;
-import com.training.assignment.framework.MenuProvider;
 import com.training.assignment.model.Employee;
 import com.training.assignment.repository.EmployeeRepository;
 
 import java.util.List;
 
-public class EmployeeService implements MenuProvider {
+public class EmployeeService {
 
     private EmployeeRepository employeeRepository = new EmployeeRepository();
 
@@ -34,11 +31,4 @@ public class EmployeeService implements MenuProvider {
         return employeeRepository.fetchAll();
     }
 
-    @Override
-    public Menu showMenu() {
-        return new Menu("Employee", new MenuItem("Create Employee", 1),
-                new MenuItem("Update Employee", 2),
-                new MenuItem("Delete Employee", 3),
-                new MenuItem("List Employee", 4));
-    }
 }
