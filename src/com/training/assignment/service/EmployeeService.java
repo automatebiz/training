@@ -16,10 +16,11 @@ public class EmployeeService {
         return uniqueIdentifier;
     }
 
-    public void updateEmployee(int employeeId, String name, int age, int salary) {
+    public Employee updateEmployee(int employeeId, String name, int age, int salary) {
         Employee employee = employeeRepository.retrieve(employeeId);
         employee.update(name, age, salary);
         employeeRepository.save(employee);
+        return employeeRepository.retrieve(employeeId);
     }
 
     public void deleteEmployee(int employeeId) {

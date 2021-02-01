@@ -1,8 +1,11 @@
 package com.training.assignment.ui;
 
+import com.training.assignment.controller.EmployeeController;
 import com.training.assignment.controller.MenuController;
 import com.training.assignment.framework.Menu;
 import com.training.assignment.framework.MenuItem;
+import com.training.assignment.model.Employee;
+import com.training.assignment.model.Response;
 
 import java.util.List;
 import java.util.Scanner;
@@ -29,6 +32,9 @@ public class UIConsole {
 
     private static int askUsersChoice() {
         System.out.println("Choose your choice!");
+
+        EmployeeController employeeController = new EmployeeController();
+        final Response<List<Employee>> listResponse = employeeController.listEmployee();
         return scanner.nextInt();
     }
 

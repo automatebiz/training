@@ -9,8 +9,9 @@ public class ProjectService {
 
 
 
-    public void createProject(Project project) {
+    public int createProject(Project project) {
 
+        return 0;
     }
 
     public void updateProject(String projectId) {

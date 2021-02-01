@@ -5,9 +5,9 @@ import com.training.assignment.model.Response;
 import com.training.assignment.service.ProjectService;
 
 import java.util.Date;
+import java.util.List;
 
 public class ProjectController {
-
 
     private ProjectService projectService = new ProjectService();
 
@@ -15,20 +15,19 @@ public class ProjectController {
                                   Date startDate, Date tentativeEndDate) {
 
         // 1. Validation 1. Name must not be empty 2. Start Date must be there
-        final boolean validationIsSuccess = validate(nameOfTheProject, startDate);
-
-        if (validationIsSuccess) {
+        if (validate(nameOfTheProject, startDate)) {
             // 2. Create model object
             Project project = new Project(nameOfTheProject, startDate, tentativeEndDate);
 
             // 3. Invoke service layer for creating a project
-            projectService.createProject(project);
-            return new Response("Employee is created Successfully.", true);
+            final int projectIdentifier = projectService.createProject(project);
+            final Response<Integer> response = new Response("Project is created Successfully.", true);
+            response.setData(projectIdentifier);
+            return response;
         } else {
             return new Response("Can not create project due to invalid data.",
                     false);
         }
-
 
     }
 
@@ -46,16 +45,20 @@ public class ProjectController {
         return validationIsSuccess;
     }
 
-    public void updateProject(String projectId) {
+    public Response updateProject(String projectId) {
 
+        //TODO: yet to implement
+        return null;
     }
 
-    public void deleteProject(String projectId) {
-
+    public Response deleteProject(String projectId) {
+        //TODO: yet to implement
+        return null;
     }
 
-    public void listProject() {
-
+    public Response<List<Project>> listProjects() {
+        //TODO: yet to implement
+        return null;
     }
 
 }
