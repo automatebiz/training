@@ -5,7 +5,7 @@ package com.training.concepts;
  */
 public enum FuelType {
     PETROL("petrol", 20),
-    DIESEL(10),
+    DIESEL(20),
     HYBRID("hybrid"),
     EV("ev", 50),
     CNG;

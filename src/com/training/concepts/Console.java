@@ -1,17 +1,18 @@
 package com.training.concepts;
 
+import com.training.assignment.model.Employee;
+import com.training.assignment.repository.EmployeeRepository;
 import com.training.concepts.sorting.VehicleMakeComparator;
 import com.training.concepts.sorting.VehicleModelComparator;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Console {
 
     public static void main(String[] args) {
-        //sorting();
-
         FuelType.PETROL.printSomething();
         FuelType.DIESEL.printSomething();
         FuelType.CNG.printSomething();
@@ -19,7 +20,8 @@ public class Console {
         FuelType.HYBRID.printSomething();
 
         final List<Vehicle> vehicles = randomVehicles();
-        for (Vehicle vehicle : vehicles) {
+        for (Object v : vehicles) {
+            Vehicle vehicle = (Vehicle) v;
             if (vehicle.getFuelType().equals(FuelType.PETROL))
                 System.out.println(vehicle);
         }

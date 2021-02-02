@@ -30,4 +30,8 @@ public class Employee {
         this.salary = salary;
         this.age = age;
     }
+
+    public int getSalary() {
+        return salary;
+    }
 }

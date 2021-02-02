@@ -4,8 +4,8 @@ public class Vehicle extends Object implements Comparable<Vehicle> {
     private String make;
     private String model;
     private FuelType fuelType;
-    private String color; // blue
-    private String registrationNumber; // TS 09 1212
+    private String color;
+    private String registrationNumber;
     private String vin;
     private int noOfKM;
     private Insurance insurance;
