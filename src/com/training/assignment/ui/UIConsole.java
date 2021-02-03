@@ -12,9 +12,9 @@ import java.util.Scanner;
 
 public class UIConsole {
 
-    private static MenuController menuController = new MenuController();
+    private static final MenuController menuController = new MenuController();
 
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -34,7 +34,7 @@ public class UIConsole {
         System.out.println("Choose your choice!");
 
         EmployeeController employeeController = new EmployeeController();
-        final Response<List<Employee>> listResponse = employeeController.listEmployee();
+        final Response<List<Employee>> listResponse = employeeController.listEmployees();
         return scanner.nextInt();
     }
 

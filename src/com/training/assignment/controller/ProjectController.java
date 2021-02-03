@@ -6,9 +6,10 @@ import com.training.assignment.service.ProjectService;
 
 import java.util.Date;
 import java.util.List;
+
 public class ProjectController {
 
-    private ProjectService projectService = new ProjectService();
+    private final ProjectService projectService = new ProjectService();
 
     public Response createProject(String nameOfTheProject,
                                   Date startDate, Date tentativeEndDate) {

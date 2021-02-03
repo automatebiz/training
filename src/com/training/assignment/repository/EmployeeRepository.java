@@ -1,33 +1,21 @@
 package com.training.assignment.repository;
 
-import com.training.assignment.model.Employee;
+import com.training.assignment.repository.entity.EmployeeEntity;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class EmployeeRepository {
+public class EmployeeRepository extends GenericRepository<Integer, EmployeeEntity> {
 
-    private static Map<Integer, Employee> employeesData = new HashMap<>();
+    private static final Map<Integer, EmployeeEntity> data = new HashMap<>();
 
-    public List<Employee> fetchAll() {
-        return new ArrayList<>(employeesData.values());
+    @Override
+    public Map<Integer, EmployeeEntity> data() {
+        return data;
     }
 
-    public void save(Employee employee) {
-        employeesData.put(employee.getUniqueIdentifier(), employee);
-    }
-
-    public Employee retrieve(final int key) {
-        return employeesData.get(key);
-    }
-
-    public boolean delete(int employeeId) {
-        if (employeesData.containsKey(employeeId)) {
-            employeesData.remove(employeeId);
-            return true;
-        }
-        return false;
+    @Override
+    protected Integer generateId() {
+        return EmployeeIDGenerator.generateID();
     }
 }

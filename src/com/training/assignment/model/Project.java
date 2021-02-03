@@ -12,4 +12,7 @@ public class Project {
         this.startDate = startDate;
         this.tentativeEndDate = tentativeEndDate;
     }
+
+    public Project() {
+    }
 }

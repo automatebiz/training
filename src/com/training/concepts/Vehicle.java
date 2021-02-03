@@ -38,6 +38,11 @@ public class Vehicle extends Object implements Comparable<Vehicle> {
         this.noOfKM = noOfKM;
     }
 
+    public Vehicle(String make, int noOfKM) {
+        this.make = make;
+        this.noOfKM = noOfKM;
+    }
+
     public Vehicle() {
     }
 

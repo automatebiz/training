@@ -2,8 +2,8 @@ package com.training.assignment.framework;
 
 
 public class MenuItem {
-    private String name;
-    private int id;
+    private final String name;
+    private final int id;
 
     public MenuItem(String name, int id) {
         this.name = name;

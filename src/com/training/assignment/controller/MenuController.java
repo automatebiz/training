@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MenuController {
 
-    private MenuService menuService = new MenuService();
+    private final MenuService menuService = new MenuService();
 
     public List<Menu> menus() {
         return menuService.menus();

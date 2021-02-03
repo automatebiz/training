@@ -1,4 +1,4 @@
-package com.training.assignment.service;
+package com.training.assignment.repository;
 
 public class EmployeeIDGenerator {
     private static int id = 1;

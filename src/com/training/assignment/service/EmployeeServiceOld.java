@@ -1,9 +1,5 @@
 package com.training.assignment.service;
 
-import com.training.assignment.model.Employee;
-
-import java.util.ArrayList;
-
 public class EmployeeServiceOld {/*
 
     private static ArrayList<Employee> employees = new ArrayList();
@@ -116,4 +112,5 @@ public class EmployeeServiceOld {/*
     private static void askForNameAgain() {
         System.out.println("Your name looks like invalid!Can you enter again!");
     }
-*/}
+*/
+}

@@ -1,18 +1,16 @@
 package com.training.concepts;
 
-import com.training.assignment.model.Employee;
-import com.training.assignment.repository.EmployeeRepository;
 import com.training.concepts.sorting.VehicleMakeComparator;
 import com.training.concepts.sorting.VehicleModelComparator;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class Console {
 
     public static void main(String[] args) {
+
         FuelType.PETROL.printSomething();
         FuelType.DIESEL.printSomething();
         FuelType.CNG.printSomething();

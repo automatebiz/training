@@ -15,8 +15,8 @@ import java.util.List;
  * Menu projectMenu = new Menu();
  */
 public class Menu {
-    private String label;
-    private List<MenuItem> menuItems;
+    private final String label;
+    private final List<MenuItem> menuItems;
 
     public Menu(String label, List<MenuItem> menuItems) {
         this.label = label;
