@@ -5,7 +5,10 @@ import com.training.assignment.repository.entity.ProjectEntity;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProjectRepository extends GenericRepository<Integer, ProjectEntity> {
+/**
+ * @author Chandrashekar V
+ */
+public class ProjectRepository extends AbstractRepository<Integer, ProjectEntity> {
 
     private static final Map<Integer, ProjectEntity> data = new HashMap<>();
 

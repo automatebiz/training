@@ -1,5 +1,10 @@
 package com.training.assignment.model;
 
+/**
+ * @author Chandrashekar V
+ *
+ * @param <T>
+ */
 public class Response<T> {
     private final String message;
     private final boolean isSuccess;
@@ -20,9 +25,13 @@ public class Response<T> {
         return new Response<Void>(message, false);
     }
 
-    public static <T>Response<T> defaultSuccessResponse(final T employeeResponseDTO,
-                                                        final String successMessage) {
+    public static <T> Response<T> defaultSuccessResponse(final T employeeResponseDTO,
+                                                         final String successMessage) {
         return new Response<>(successMessage, true, employeeResponseDTO);
+    }
+
+    public static <T> Response<T> defaultErrorResponse(String errorMessage, T data) {
+        return new Response<>(errorMessage, false, data);
     }
 
 

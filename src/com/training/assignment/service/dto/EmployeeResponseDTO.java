@@ -1,8 +1,12 @@
 package com.training.assignment.service.dto;
 
+import com.training.assignment.framework.ResponseDTO;
 import com.training.assignment.repository.entity.EmployeeEntity;
 
-public class EmployeeResponseDTO {
+/**
+ * @author Chandrashekar V
+ */
+public class EmployeeResponseDTO implements ResponseDTO {
     private final String name;
     private final int salary;
     private final int uniqueIdentifier;

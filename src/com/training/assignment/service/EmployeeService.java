@@ -1,9 +1,10 @@
 package com.training.assignment.service;
 
 import com.training.assignment.exception.ValidationException;
+import com.training.assignment.framework.CRUDService;
 import com.training.assignment.model.Employee;
 import com.training.assignment.repository.EmployeeRepository;
-import com.training.assignment.repository.GenericRepository;
+import com.training.assignment.repository.AbstractRepository;
 import com.training.assignment.repository.entity.EmployeeEntity;
 import com.training.assignment.service.dto.EmployeeResponseDTO;
 
@@ -11,11 +12,16 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class EmployeeService {
+public class EmployeeService implements CRUDService<Integer, Employee, EmployeeResponseDTO> {
 
-    private final GenericRepository<Integer, EmployeeEntity> employeeRepository = new EmployeeRepository();
+    private final AbstractRepository<Integer, EmployeeEntity> employeeRepository = new EmployeeRepository();
 
-    public EmployeeResponseDTO createEmployee(final Employee employee) {
+    public boolean delete(Integer employeeId) {
+        return employeeRepository.delete(employeeId);
+    }
+
+    @Override
+    public EmployeeResponseDTO create(Employee employee) {
         EmployeeEntity employeeEntity = createEmployeeEntity(employee);
         final EmployeeEntity entity = employeeRepository.save(employeeEntity);
         return new EmployeeResponseDTO(entity);
@@ -25,25 +31,23 @@ public class EmployeeService {
         return new EmployeeEntity(employee.getName(), employee.getSalary(), employee.getAge());
     }
 
-    public boolean deleteEmployee(int employeeId) {
-        return employeeRepository.delete(employeeId);
-    }
-
-    public List<EmployeeResponseDTO> listEmployees() {
-        // Fetch all employees from repository and convert to response DTO
+    @Override
+    public List<EmployeeResponseDTO> getAll() {
         return employeeRepository.fetchAll().stream().map(EmployeeResponseDTO::new).collect(Collectors.toList());
     }
 
-    public EmployeeResponseDTO updateEmployee(int employeeId, Employee employee) {
-        EmployeeEntity employeeEntity = fetchOrThrowException(employeeId);
+    @Override
+    public EmployeeResponseDTO update(Integer id, Employee employee) {
+        EmployeeEntity employeeEntity = fetchOrThrowException(id);
         employeeEntity.setAge(employee.getAge());
         employeeEntity.setName(employee.getName());
         employeeEntity.setSalary(employee.getSalary());
         return new EmployeeResponseDTO(employeeRepository.save(employeeEntity));
     }
 
-    public EmployeeResponseDTO fetchEmployeeById(int employeeId) {
-        return new EmployeeResponseDTO(fetchOrThrowException(employeeId));
+    @Override
+    public EmployeeResponseDTO getById(Integer id) {
+        return new EmployeeResponseDTO(fetchOrThrowException(id));
     }
 
     private EmployeeEntity fetchOrThrowException(int employeeId) {

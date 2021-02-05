@@ -1,12 +1,16 @@
 package com.training.assignment.model;
 
+import com.training.assignment.framework.BaseModel;
 import com.training.assignment.framework.ValidationError;
 import com.training.assignment.framework.ValidationResponse;
 import com.training.assignment.framework.Validator;
 
 import java.time.LocalDate;
 
-public class Project implements Validator {
+/**
+ * @author Chandrashekar V
+ */
+public class Project implements BaseModel {
     private String name;
     private LocalDate startDate;
     private LocalDate tentativeEndDate;

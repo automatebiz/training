@@ -3,6 +3,9 @@ package com.training.assignment.framework;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Chandrashekar V
+ */
 public class ValidationResponse {
     private Map<String, ValidationError> errorMap = new HashMap<>();
     private boolean isErrorExists;

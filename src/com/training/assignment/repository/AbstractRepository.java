@@ -6,8 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public abstract class GenericRepository<K, T> {
-
+/**
+ * @param <K>
+ * @param <T>
+ * @author Chandrashekar V
+ */
+public abstract class AbstractRepository<K, T> {
 
     public abstract Map<K, T> data();
 

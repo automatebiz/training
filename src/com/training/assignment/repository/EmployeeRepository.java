@@ -5,7 +5,7 @@ import com.training.assignment.repository.entity.EmployeeEntity;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EmployeeRepository extends GenericRepository<Integer, EmployeeEntity> {
+public class EmployeeRepository extends AbstractRepository<Integer, EmployeeEntity> {
 
     private static final Map<Integer, EmployeeEntity> data = new HashMap<>();
 

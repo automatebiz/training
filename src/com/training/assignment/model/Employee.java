@@ -1,11 +1,15 @@
 package com.training.assignment.model;
 
+import com.training.assignment.framework.BaseModel;
+import com.training.assignment.framework.ValidationResponse;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  * Employee: The pojo which defines the properties and behavior of the employee.
+ *
+ * @author Chandrashekar V
  */
-public class Employee {
+public class Employee implements BaseModel {
     private final String name;
     private final int salary;
     private final int age;
@@ -39,7 +43,7 @@ public class Employee {
 
     }
 
-    public boolean isDataValid() {
+    public ValidationResponse validate() {
         boolean isValid = true;
         if (age < 0) {
             System.out.println("Age not valid");
@@ -54,6 +58,6 @@ public class Employee {
             isValid = false;
         }
 
-        return isValid;
+        return null;
     }
 }

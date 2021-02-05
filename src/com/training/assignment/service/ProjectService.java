@@ -1,25 +1,47 @@
 package com.training.assignment.service;
 
+import com.training.assignment.framework.CRUDService;
 import com.training.assignment.model.Project;
+import com.training.assignment.repository.AbstractRepository;
+import com.training.assignment.repository.ProjectRepository;
+import com.training.assignment.repository.entity.ProjectEntity;
 
-public class ProjectService {
+import java.util.List;
 
+/**
+ * @author Chandrashekar V
+ */
+public class ProjectService implements CRUDService<Integer, Project, ProjectResponseDTO> {
 
-    public int createProject(Project project) {
+    private final AbstractRepository<Integer, ProjectEntity> employeeRepository = new ProjectRepository();
 
-        return 0;
+    @Override
+    public ProjectResponseDTO create(Project project) {
+        // TODO: Implementation goes here
+        return null;
     }
 
-    public void updateProject(String projectId) {
-
+    @Override
+    public List<ProjectResponseDTO> getAll() {
+        // TODO: Implementation goes here
+        return null;
     }
 
-    public void deleteProject(String projectId) {
-
+    @Override
+    public ProjectResponseDTO update(Integer id, Project project) {
+        // TODO: Implementation goes here
+        return null;
     }
 
-    public void listProject() {
-
+    @Override
+    public ProjectResponseDTO getById(Integer id) {
+        // TODO: Implementation goes here
+        return null;
     }
 
+    @Override
+    public boolean delete(Integer id) {
+        // TODO: Implementation goes here
+        return false;
+    }
 }

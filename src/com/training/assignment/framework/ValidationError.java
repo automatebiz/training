@@ -1,5 +1,8 @@
 package com.training.assignment.framework;
 
+/**
+ * @author Chandrashekar V
+ */
 public class ValidationError {
     private String field;
     private String errorMessage;
