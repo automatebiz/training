@@ -15,9 +15,10 @@ public abstract class GenericRepository<K, T> {
         return new ArrayList<>(data().values());
     }
 
-    public T save(T employee) {
+    public T save(T t) {
+
         final K uniqueIdentifier = generateId();
-        return data().put(uniqueIdentifier, employee);
+        return data().put(uniqueIdentifier, t);
     }
 
     protected abstract K generateId();

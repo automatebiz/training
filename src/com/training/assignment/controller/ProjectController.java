@@ -1,49 +1,38 @@
 package com.training.assignment.controller;
 
+import com.training.assignment.framework.ValidationError;
+import com.training.assignment.framework.ValidationResponse;
 import com.training.assignment.model.Project;
 import com.training.assignment.model.Response;
 import com.training.assignment.service.ProjectService;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
-public class ProjectController {
+public class ProjectController  {
 
     private final ProjectService projectService = new ProjectService();
 
     public Response createProject(String nameOfTheProject,
-                                  Date startDate, Date tentativeEndDate) {
+                                  LocalDate startDate, LocalDate tentativeEndDate) {
 
-        // 1. Validation 1. Name must not be empty 2. Start Date must be there
-        if (validate(nameOfTheProject, startDate)) {
-            // 2. Create model object
-            Project project = new Project(nameOfTheProject, startDate, tentativeEndDate);
+        Project project = new Project(nameOfTheProject, startDate, tentativeEndDate);
+        final ValidationResponse validationResponse = project.validate();
+        if (validationResponse.isErrorExists())
+            return erroneousResponse("Unable to proceed with project creation.", validationResponse.getErrorMap());
 
-            // 3. Invoke service layer for creating a project
-            final int projectIdentifier = projectService.createProject(project);
-            final Response<Integer> response = new Response("Project is created Successfully.", true);
-            response.setData(projectIdentifier);
-            return response;
-        } else {
-            return new Response("Can not create project due to invalid data.",
-                    false);
-        }
-
+        // 3. Invoke service layer for creating a project
+        final int projectIdentifier = projectService.createProject(project);
+        final Response<Integer> response = new Response("Project is created Successfully.", true);
+        response.setData(projectIdentifier);
+        return response;
     }
 
-    private boolean validate(String nameOfTheProject, Date startDate) {
-        boolean validationIsSuccess = true;
-        if (nameOfTheProject == null) {
-            System.out.println("Project name is required");
-            validationIsSuccess = false;
-        }
-
-        if (startDate == null) {
-            System.out.println("Project start date is required");
-            validationIsSuccess = false;
-        }
-        return validationIsSuccess;
+    private Response<?> erroneousResponse(String errorMessage, Map<String, ValidationError> errorMap) {
+        return new Response(errorMessage, false, errorMap);
     }
+
 
     public Response updateProject(String projectId) {
 

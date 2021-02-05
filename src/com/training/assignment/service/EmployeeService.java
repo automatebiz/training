@@ -47,9 +47,11 @@ public class EmployeeService {
     }
 
     private EmployeeEntity fetchOrThrowException(int employeeId) {
+        if (employeeId < 0)
+            throw new ValidationException("Invalid employee id");
         final EmployeeEntity employeeEntity = employeeRepository.retrieve(employeeId);
         if (Objects.isNull(employeeEntity))
-            throw new ValidationException(String.format("Employee not found for the given ID %d", employeeId));
+            throw new ValidationException("Employee not found for the given id.");
         return employeeEntity;
     }
 }

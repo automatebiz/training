@@ -19,12 +19,12 @@ public final class EmployeeController {
         if (employee.isDataValid()) {
             return proceedWithCreate(employee);
         }
-        return erroneousResponse("Employee creation failed, due to invalid data");
+        return erroneousResponse("Employee creation failed due to invalid data");
     }
 
-    private Response<EmployeeResponseDTO> proceedWithCreate(Employee employee) {
+    private Response<?> proceedWithCreate(Employee employee) {
         final EmployeeResponseDTO employeeResponse = employeeService.createEmployee(employee);
-        return new Response<EmployeeResponseDTO>("Employee created successfully!", true, employeeResponse);
+        return Response.defaultSuccessResponse(employeeResponse, "Employee created successfully!");
     }
 
     public Response<?> updateEmployee(int employeeId, final String name, final int age,
@@ -36,15 +36,10 @@ public final class EmployeeController {
         return erroneousResponse("Employee update failed, due to invalid data");
     }
 
-    private Response<Void> erroneousResponse(String responseMessage) {
-        return Response.defaultErrorResponse(responseMessage);
-    }
-
     private Response<EmployeeResponseDTO> proceedWithUpdate(int employeeId, Employee employee) {
         final EmployeeResponseDTO employeeResponseDTO = employeeService.updateEmployee(employeeId, employee);
 
-        return new Response<EmployeeResponseDTO>("Employee update has been successful!",
-                true, employeeResponseDTO);
+        return Response.defaultSuccessResponse(employeeResponseDTO, "Employee update has been successful!");
     }
 
     public Response<Boolean> deleteEmployee(int employeeId) {
@@ -56,8 +51,12 @@ public final class EmployeeController {
     }
 
     public Response<EmployeeResponseDTO> fetchEmployeeById(final int id) {
-        return new Response<EmployeeResponseDTO>("Employee retrieved successfully", true,
-                employeeService.fetchEmployeeById(id));
+        return Response.defaultSuccessResponse(employeeService.fetchEmployeeById(id),
+                "Employee retrieved successfully");
+    }
+
+    private Response<Void> erroneousResponse(String responseMessage) {
+        return Response.defaultErrorResponse(responseMessage);
     }
 
 }

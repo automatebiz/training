@@ -1,5 +1,7 @@
 package com.training.assignment.exception;
 
+import com.training.concepts.Vehicle;
+
 public class ValidationException extends RuntimeException {
 
     public ValidationException() {

@@ -20,6 +20,12 @@ public class Response<T> {
         return new Response<Void>(message, false);
     }
 
+    public static <T>Response<T> defaultSuccessResponse(final T employeeResponseDTO,
+                                                        final String successMessage) {
+        return new Response<>(successMessage, true, employeeResponseDTO);
+    }
+
+
     public String getMessage() {
         return message;
     }

@@ -10,7 +10,7 @@ import com.training.assignment.model.Response;
 import java.util.List;
 import java.util.Scanner;
 
-public class UIConsole {
+public class UIConsole {/*
 
     private static final MenuController menuController = new MenuController();
 
@@ -45,5 +45,5 @@ public class UIConsole {
                 System.out.println(menuItem.getId() + ". " + menuItem.getName());
             }
         }
-    }
+    }*/
 }
